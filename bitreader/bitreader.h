@@ -15,7 +15,7 @@ int8_t BitReader_init(BitReader *reader, const uint8_t *data, uint32_t size);
 
 /*
  this function return range n value of bits
- uint8_t n: this parameter range is 0 < n <= 32.
+ uint8_t n: this parameter range is 0 <= n <= 32.
 */
 uint32_t BitReader_get_bits(BitReader *reader, uint8_t n);
 
