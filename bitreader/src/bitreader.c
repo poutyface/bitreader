@@ -71,3 +71,8 @@ uint32_t BitReader_get_size(BitReader *reader)
   return reader->size * 8 + reader->leftbits;
 }
 
+
+const uint8_t* BitReader_get_resumed_data(BitReader *reader)
+{
+  return reader->data - (reader->leftbits / 8);
+}

@@ -7,6 +7,7 @@ int main()
   uint8_t data[2] = {0xF0, 0xF0};
   uint8_t data2[4] = {0xF0, 0xF0, 0xF0, 0xF0};
   uint32_t value = 0;
+  const uint8_t *p;
 
   BitReader_init(&reader, data, 2);
 
@@ -42,6 +43,11 @@ int main()
   check(value == 24, "should be equal 24");
   value = BitReader_get_bits(&reader, 24);
   check(value == 0xF0F0F0, "should be equal 0xF0F0F0");
+
+  BitReader_init(&reader, data2, 4);
+  BitReader_skip_bits(&reader, 8);
+  p = BitReader_get_resumed_data(&reader);
+  check(p == data2 + 1, "should be equal p == data2 + 1");
   return 0;
 
  error:
