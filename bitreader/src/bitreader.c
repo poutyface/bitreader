@@ -54,7 +54,7 @@ uint32_t BitReader_get_bits(BitReader *reader, uint8_t n)
 }
 
 
-void BitReader_skip_bits(BitReader *reader, uint8_t n)
+void BitReader_skip_bits(BitReader *reader, uint32_t n)
 {
   while(n > 32){
     BitReader_get_bits(reader, 32);
