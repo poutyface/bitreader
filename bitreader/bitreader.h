@@ -22,7 +22,7 @@ uint32_t BitReader_get_bits(BitReader *reader, uint8_t n);
 /*
   this function skip bits from current position.
 */
-void BitReader_skip_bits(BitReader *reader, uint8_t n);
+void BitReader_skip_bits(BitReader *reader, uint32_t n);
 
 /*
   this function return num of bits that BitReader contains
