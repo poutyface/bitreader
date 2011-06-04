@@ -46,7 +46,7 @@ int main()
 
   BitReader_init(&reader, data2, 4);
   BitReader_skip_bits(&reader, 8);
-  p = BitReader_get_resumed_data(&reader);
+  p = BitReader_get_data(&reader);
   check(p == data2 + 1, "should be equal p == data2 + 1");
   return 0;
 

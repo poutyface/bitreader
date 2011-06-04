@@ -32,6 +32,6 @@ uint32_t BitReader_get_size(BitReader *reader);
 /*
   this function return current position pointer of data (carefully: pointer is per bytes)
  */
-const uint8_t* BitReader_get_resumed_data(BitReader *reader);
+const uint8_t* BitReader_get_data(BitReader *reader);
 
 #endif
