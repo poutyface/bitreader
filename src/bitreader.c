@@ -18,7 +18,7 @@ static void fill_reservoir(BitReader *reader)
 
 
 
-int8_t BitReader_init(BitReader *reader, const uint8_t *data, uint32_t size)
+int8_t bitreader_init(BitReader *reader, const uint8_t *data, uint32_t size)
 {
   if(!reader || !data || !size)
     return -1;
@@ -31,7 +31,7 @@ int8_t BitReader_init(BitReader *reader, const uint8_t *data, uint32_t size)
 }
 
 
-uint32_t BitReader_get_bits(BitReader *reader, uint8_t n)
+uint32_t get_bits(BitReader *reader, uint8_t n)
 {
   uint32_t result = 0;
   uint8_t m = 0;
@@ -54,25 +54,25 @@ uint32_t BitReader_get_bits(BitReader *reader, uint8_t n)
 }
 
 
-void BitReader_skip_bits(BitReader *reader, uint32_t n)
+void skip_bits(BitReader *reader, uint32_t n)
 {
   while(n > 32){
-    BitReader_get_bits(reader, 32);
+    get_bits(reader, 32);
     n -= 32;
   }
 
   if(n > 0)
-    BitReader_get_bits(reader, n);
+    get_bits(reader, n);
 }
 
 
-uint32_t BitReader_get_size(BitReader *reader)
+uint32_t bitreader_size(BitReader *reader)
 {
   return reader->size * 8 + reader->leftbits;
 }
 
 
-const uint8_t* BitReader_get_data(BitReader *reader)
+const uint8_t* bitreader_data(BitReader *reader)
 {
   return reader->data - (reader->leftbits / 8);
 }

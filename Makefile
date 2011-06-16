@@ -1,9 +1,9 @@
 LIB_NAME=bitreader
 STATICLIB_NAME=lib${LIB_NAME}.a
 
-CFLAGS=-g -O3 -Wall -I${LIB_NAME} -I${LIB_NAME}/src ${OPTS}
+CFLAGS=-g -O3 -Wall -I${LIB_NAME} -I$src ${OPTS}
 
-SRC=$(wildcard ${LIB_NAME}/src/*.c)
+SRC=$(wildcard src/*.c)
 OBJ=$(patsubst %.c,%.o,${SRC})
 
 LIB_OBJ=${OBJ}
